@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Books</h1>
+
+{% for i in book %}
+
+<ul>
+    <li><h2>{% if i.done == False %}🕐{% else %}✅{% endif %}{{i.title}}</h2></li>
+    <p>{{i.description}}</p>
+    <p>Author: {{i.author.name}}</p>
+    <button>
+        <a href="{% url 'update' i.id %}">Update</a>
+    </button>
+    <button>
+        <a href="{% url 'delete_book' i.id %}">Delete</a>
+    </button>
+    <button>
+        <a href="{% url 'done_book' i.id %}">Done</a>
+    </button>
+</ul>
+
+
+{% endfor %}
+
+{% endblock %}

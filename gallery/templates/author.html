@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Authors</h1>
+
+{% for i in author %}
+
+<ul>
+    <li><h2>
+        <a href="{% url 'books_of_author' i.id %}">{{i.name}}</a>
+    </h2></li>
+    <button>
+        <a href="{% url 'update_author' i.id %}">Update</a>
+    </button>
+    <button>
+        <a href="{% url 'delete_author' i.id %}">Delete</a>
+    </button>
+</ul>
+
+
+{% endfor %}
+
+
+{% endblock %}
